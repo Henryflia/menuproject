@@ -7,7 +7,7 @@ function pakageItems(items) {
     return items.map((item) => ({
         id: item.Id,
         name: item.Name,
-        price: item.FinalPrice,
+        price: item.price,
         quantity: item.quantity
     }));
 }
@@ -32,7 +32,7 @@ export default class CheckoutProcess {
 
     calculateItemSubTotal() {
         this.itemTotal = this.list.reduce((total, item) => 
-            total + (Number(item.FinalPrice) * item.quantity), 0);
+            total + (Number(item.price) * item.quantity), 0);
     }
 
 

@@ -1,6 +1,6 @@
-// import ShoppingCart from "./ShoppingCart.mjs";
+import DeliveryCart from "./DeliveryCart.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
 
-// const cart = new ShoppingCart("so-cart", ".product-list");
+const cart = new DeliveryCart("so-cart", ".meal-list");
 loadHeaderFooter();
-// cart.renderCartContents();
+cart.renderCartContents();

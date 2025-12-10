@@ -174,20 +174,36 @@ button {
   padding: 1rem;
 }
 
-.product-list {
+.meal-list {
   display: flex;
   flex-flow: row wrap;
   list-style-type: none;
   justify-content: center;
 }
 
-.product-list a {
+.meal-list a {
   text-decoration: none;
   color: var(--dark-grey);
 }
 
-/* Styles for product lists */
-.product-card {
+/* Save List */
+.save-list {
+  display: flex;
+  flex-flow: row wrap;
+  list-style-type: none;
+  justify-content: center;
+}
+
+.save-list a {
+  text-decoration: none;
+  color: var(--dark-grey);
+}
+
+/* Styles for meal lists */
+.top-products {
+  list-style: none;
+}
+.meal-card {
   flex: 1 1 45%;
   margin: 0.25em;
   padding: 0.5em;
@@ -195,10 +211,18 @@ button {
   max-width: 250px;
 }
 
-.product-card h2,
-.product-card h3,
-.product-card p {
+.meal-card h2,
+.meal-card h3,
+.meal-card p {
   margin: 0.5em 0;
+}
+
+.meal-card{
+  border-radius: 20px;
+
+  & img{
+    border-radius: 20px 20px 20px 20px;
+  }
 }
 
 .card__brand {
@@ -211,13 +235,13 @@ button {
 
 /* End product list card */
 
-.product-detail {
+.meal-detail {
   padding: 1em;
   max-width: 500px;
   margin: auto;
 }
 
-.product-detail img {
+.meal-detail img {
   width: 100%;
 }
 
@@ -233,7 +257,12 @@ button {
 .cart-card__image {
   grid-row: 1/3;
   grid-column: 1;
+
+  & img{
+    border-radius: 15px;
+  }
 }
+
 
 .cart-card p {
   margin-top: 0;
@@ -259,6 +288,14 @@ button {
   grid-column: 3;
 }
 
+.information{
+  margin: 10px;
+}
+
+.products .meal-list{
+  display: block;
+}
+
 .checkoutBtm {
   color: inherit;
   text-decoration: none;
@@ -273,34 +310,36 @@ form input {
   border-radius: 5px;
 }
 
-.color-options {
+/* Search Menu List */
+.searchbox{
   display: flex;
-  gap: 1rem;
-  margin: 1rem 0;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 
-  & input:checked + img {
-    border-color: black;
+  & #search{
+    width: 90%;
+    height: 30%;
   }
-
-  & input[type="checkbox"] {
-    display: none;
-  }
-
-  & img {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    /* esquinas redondeadas */
-    border: 2px solid transparent;
-    transition: 0.2s ease;
+  & input {
+    border-radius: 9px;
+    padding: 5px;
+    font-size: 1.2em;
   }
 }
 
-.color-option {
+/* Page Details */
+
+.tag{
+  display: inline-block;
+  margin: 5px;
+  padding: 8px;
+  border-radius: 100%;
+  border: 2px solid black;
+  background-color: var(--secondary-color);
+}
+.addbutton{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -317,7 +356,7 @@ form input {
 
   .cart-card {
     font-size: inherit;
-    grid-template-columns: 150px auto 15%;
+    grid-template-columns: 150px auto 25%;
   }
 }
 

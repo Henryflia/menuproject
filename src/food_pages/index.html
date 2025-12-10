@@ -10,26 +10,40 @@
 
     <link rel="stylesheet" href="../css/style.css" />
 
-    <!-- <script src="../js/product.js" type="module"></script> -->
+    <script src="../js/meal.js" type="module"></script>
   </head>
 
   <body>
     <header class="divider" id="main-header"></header>
 
     <main class="divider">
-      <section class="product-detail">
-        <h2>Product Details</h2>
+      <section class="meal-detail">
+        <h2></h2>
         <figure>
-          <img src="https://www.themealdb.com/images/media/meals/8rfd4q1764112993.jpg" alt="" id="p-image" width="300" />
+          <img src="" alt="" id="p-image" width="300" />
         </figure>
         <section id="product-info">
-          <h3 id="p-category">Beef</h3>
-          <p id="p-name">Algerian Kefta (Meatballs)</p>
+          <h3 id="p-category"></h3>
+          <p id="p-name"></p>
+          <h3>Tags</h3>
+          <div id="p-tags" class="tags"></div>
 
-          <p id="p-area">Algerian</p>
+          <h3>Origin</h3>
+          <p id="p-area"></p>
+          <h3>Ingredients</h3>
+          <div id="p-ingredients"></div>
+
+          <h3>Instructions</h3>
+          <div class="instrucBox">
+            <p id="p-instructions"></p>
+          </div>
+
           <p id="p-price">1200</p>
-          <div id="p-ingredients"> Ingredients</div>
-          <button id="add-to-cart" data-id="">Add to Cart</button>
+          <div class="addbutton">
+            <button id="add-to-cart" data-id="">Add to Cart</button>
+            <button id="add-to-save" data-id="">Wish List</button>
+          </div>
+
         </section>
       </section>
     </main>
