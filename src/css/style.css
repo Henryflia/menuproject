@@ -157,9 +157,7 @@ button:active {
   width: 100px;
 }
 
-.cart:hover img {
-  fill: gray;
-}
+
 
 /* End cart icon styles */
 
@@ -470,7 +468,6 @@ details:not(open){
 .delete{
   position: absolute;
   top: 10px;
-  z-index: 10px;
 }
 .meal-list
 .cart-card{
