@@ -5,7 +5,7 @@ import { renderListWithTemplate } from "./utils.mjs";
 function menuCardTemplate(food, category) {
     return `<li class="meal-card">
           <a href="/food_pages/?id=${food.idMeal}">
-            <img src="${food.strMealThumb}"alt="${food.strMeal}" />
+            <img src="${food.strMealThumb}"alt="${food.strMeal}">
             <h2>Category: ${category}</h2>
             <h3 class="card__name">${food.strMeal}</h3>
           </a>
