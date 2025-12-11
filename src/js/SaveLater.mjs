@@ -1,7 +1,8 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 function saveItemTemplate(item) {
-    return `<li class="meal-card">
+    return `<li class="meal-card" data-id="${item.idMeal}">
+            <button class="delete" data-id="${item.idMeal}">x</button>
           <a href="/food_pages/?id=${item.idMeal}">
             <img src="${item.strMealThumb}"alt="${item.strMeal}" />
             <h2>Category: ${item.strCategory}</h2>

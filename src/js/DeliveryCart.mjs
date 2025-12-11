@@ -1,15 +1,15 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 function cartItemTemplate(item) {
-    return `<li class="cart-card divider">
+    return `<li class="cart-card divider" data-id=${item.idMeal}>
+                <button class="delete" data-id="${item.idMeal}">x</button>
                 <a href="#" class="cart-card__image">
                     <img src="${item.strMealThumb}" alt="${item.strMeal}">
                 </a>
                 <a class="information" href="#">
-                    <h2 class="card__name">Meal: ${item.strMeal}</h2>
+                    <h2 class="card__name">Meal:Name: ${item.strMeal}</h2>
                     <h3 class="card__category">Category: ${item.strCategory}</h3>
                     <h3 class="card__area">Origin: ${item.strArea}</h3>
-
                 </a>
                 
                 <p class="cart-card__quantity">
@@ -76,3 +76,6 @@ document.querySelector(".meal-list").addEventListener("click", (e) => {
   const cartView = new DeliveryCart("so-cart", ".meal-list");
   cartView.renderCartContents();
 });
+
+
+

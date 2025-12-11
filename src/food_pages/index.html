@@ -20,25 +20,42 @@
       <section class="meal-detail">
         <h2></h2>
         <figure>
-          <img src="" alt="" id="p-image" width="300" />
+          <img class="imgd" src="" alt="" id="m-image" width="300" />
         </figure>
-        <section id="product-info">
-          <h3 id="p-category"></h3>
-          <p id="p-name"></p>
+        <section id="menu-info">
+          <h3 id="m-category"></h3>
+          <p id="m-name"></p>
+          <h3>Chef:</h3>
+          <p id="m-chef"></p>
           <h3>Tags</h3>
-          <div id="p-tags" class="tags"></div>
+          <div id="m-tags" class="tags"></div>
 
           <h3>Origin</h3>
-          <p id="p-area"></p>
-          <h3>Ingredients</h3>
-          <div id="p-ingredients"></div>
-
-          <h3>Instructions</h3>
-          <div class="instrucBox">
-            <p id="p-instructions"></p>
+          <p id="m-area"></p>
+          <div class="accordion">
+            <details>
+              <summary>Ingredients</summary>
+              <div id="m-ingredients"></div>
+            </details>
           </div>
 
-          <p id="p-price">1200</p>
+        
+
+          <h3>Instructions</h3>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="/images/ready.png" alt="">
+              </div>
+              <div class="instrucBox">
+                <p id="m-instructions"></p>
+              </div>
+            </div>
+          </div>
+         
+          
+
+          <p id="m-price">1200</p>
           <div class="addbutton">
             <button id="add-to-cart" data-id="">Add to Cart</button>
             <button id="add-to-save" data-id="">Wish List</button>

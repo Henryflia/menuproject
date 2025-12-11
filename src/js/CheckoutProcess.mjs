@@ -5,9 +5,9 @@ const services = new ExternalServices();
 
 function pakageItems(items) {
     return items.map((item) => ({
-        id: item.Id,
-        name: item.Name,
-        price: item.price,
+        id: item.idMela,
+        name: item.strMeal,
+        price: Number(item.price),
         quantity: item.quantity
     }));
 }
@@ -65,7 +65,7 @@ export default class CheckoutProcess {
         order.tax = this.tax;
         order.shipping = this.shipping;
         order.items = pakageItems(this.list);
-        
+        console.log(JSON.stringify(order, null, 2));
         try {
             const response = await services.checkout(order);
             console.log(response) 

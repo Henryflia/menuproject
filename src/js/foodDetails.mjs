@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage, alertMessage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, alertMessage, } from "./utils.mjs";
 
 export default class foodDetails{
     constructor(mealId, dataSource) {
@@ -40,16 +40,17 @@ export default class foodDetails{
 
 function mealDetailsTemplate(meal) {
     document.querySelector("h2").textContent = `Meal Details: ${meal.strCategory.charAt(0).toUpperCase() + meal.strCategory.slice(1)}`;
-    const mealImg = document.querySelector("#p-image");
+    const mealImg = document.querySelector("#m-image");
     mealImg.src = meal.strMealThumb;
     mealImg.alt = meal.strMeal; 
-    document.querySelector("#p-category").textContent = `Category: ${meal.strCategory.charAt(0).toUpperCase() + meal.strCategory.slice(1)}`;
+    document.querySelector("#m-category").textContent = `Category: ${meal.strCategory.charAt(0).toUpperCase() + meal.strCategory.slice(1)}`;
 
-    document.querySelector("#p-name").textContent = meal.strMeal;
-    document.querySelector("#p-area").textContent = `${meal.strArea}`;
+    document.querySelector("#m-name").textContent = `Name: ${meal.strMeal}`;
+    document.querySelector("#m-area").textContent = `${meal.strArea}`;
+    document.querySelector("#m-chef").textContent = ` ${meal.chef}`;
 
     // Add Tags
-    const tagsContainer = document.querySelector("#p-tags");
+    const tagsContainer = document.querySelector("#m-tags");
     tagsContainer.innerHTML = "";
     const tags = meal.strTags ? meal.strTags.split(",") : [];
     tags.forEach(tag => {
@@ -60,10 +61,10 @@ function mealDetailsTemplate(meal) {
     })
 
     // Add Ingredients
-    document.querySelector("#p-ingredients").innerHTML = getIngredients(meal);
+    document.querySelector("#m-ingredients").innerHTML = getIngredients(meal);
 
-    document.querySelector("#p-instructions").textContent = meal.strInstructions;
-    document.querySelector("#p-price").textContent = `For Delivery: $${meal.price}`;
+    document.querySelector("#m-instructions").textContent = meal.strInstructions;
+    document.querySelector("#m-price").textContent = `For Delivery: $${meal.price}`;
 
 
 }

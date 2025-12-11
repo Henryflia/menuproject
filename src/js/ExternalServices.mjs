@@ -26,6 +26,7 @@ export default class ExternalServices {
     const meal = { ...data.meals[0] };
 
     meal.price = await this.getPrice()
+    meal.chef = await this.getChef()
     // console.log(data.Result);
     return meal
   }
@@ -35,6 +36,14 @@ export default class ExternalServices {
     const data = await res.json();
     return data.price;
   }
+
+  async getChef() {
+  const res = await fetch(`${fakeUrl}/users/${Math.floor(Math.random() * 10) + 1}`);
+    const data = await res.json();
+    const fullName = `${data.name.firstname.charAt(0).toUpperCase() + data.name.firstname.slice(1)} ${data.name.lastname.charAt(0).toUpperCase() + data.name.lastname.slice(1)}`
+     
+    return fullName;
+  }
   async checkout(payload) {
     const options = {
       method: "POST",
@@ -43,6 +52,6 @@ export default class ExternalServices {
       },
       body: JSON.stringify(payload),
     };
-    return await fetch(`${baseURL}checkout/`, options).then(convertToJson);
+    return await fetch(`${fakeUrl}/carts`, options).then(convertToJson);
   }
 }

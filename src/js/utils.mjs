@@ -99,3 +99,12 @@ export function removeAllAlerts() {
   const alerts = document.querySelectorAll(".alert");
   alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
 }
+
+
+export function removeMeal(mealId, key) {
+  let cartItems = getLocalStorage(key) || [];
+  cartItems = cartItems.filter(item => item.idMeal !== mealId)
+  localStorage.setItem(key, JSON.stringify(cartItems))
+  const meal = document.querySelector(`[data-id="${mealId}"]`);
+  if(meal) meal.remove()
+}

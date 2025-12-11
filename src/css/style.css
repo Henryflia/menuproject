@@ -11,7 +11,7 @@
   /* sizes */
   --font-base: 18px;
   --small-font: 0.8em;
-  --large-font: 1.2em;
+  --large-font: 1.3em;
 }
 * {
   margin: 0;
@@ -107,14 +107,26 @@ p {
 }
 
 button {
-  padding: 0.5em 2em;
+  padding: 15px 25px;
   background-color: var(--secondary-color);
-  color: white;
+  color: black;
   margin: auto;
   display: block;
-  border: 0;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
   font-size: var(--large-font);
   cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  background-color: var(--primary-color);
+}
+button:active {
+  background-color: var(--primary-color);
+  box-shadow: 0 5px #666;
+  transform: translate(4px);
 }
 
 .divider {
@@ -209,6 +221,11 @@ button {
   padding: 0.5em;
   border: 1px solid var(--light-grey);
   max-width: 250px;
+  transition: box-shadow 0.3s ease;
+}
+
+.meal-card:hover{
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .meal-card h2,
@@ -292,7 +309,7 @@ button {
   margin: 10px;
 }
 
-.products .meal-list{
+.divcart .meal-list{
   display: block;
 }
 
@@ -340,6 +357,142 @@ form input {
 }
 .addbutton{
   display: flex;
+}
+
+/* Flip Card */
+.flip-card {
+  background-color: transparent;
+  width: auto;
+  height: 400px;
+  perspective: 1000px;
+  border-radius: 30px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  
+}
+
+.flip-card:hover .flip-card-inner{
+  transform: rotateY(180deg);
+}
+
+.flip-card-front img {
+  border-radius: 30px;
+  width: 100%;
+  height: 100%;
+}
+
+.flip-card-front, .instrucBox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+
+.instrucBox {
+  background-color: #ff8051;
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: 30px;
+  overflow-y: auto;
+}
+
+.m-instructions {
+  padding: 2rem;
+}
+
+/* Alert */
+.alert{
+  display: flex;
+  background-color: #bbc96b;
+  border: 5px solid #5a632a;
+  justify-content: space-between;
+
+  & span{
+    text-align: right;
+    margin: 10px;
+    font-size: 20px;
+
+    & span:hover{
+      background-color: var(--primary-color);
+    }
+  }
+}
+.accordion {
+  flex-direction: row;
+  gap: 1rem;
+}
+
+details {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  transition: background-color 2s ease;
+
+  summary {
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  summary::marker {
+    display: none;
+    /* removes default arrow in some browsers */
+  }
+
+  &[open] {
+    max-height: 500px;
+    background-color: var(--secondary-color);
+    transition: max-height 2s ease, background-color 2s ease;
+  }
+}
+#m-ingredients li{
+  list-style: none;
+}
+
+details:not(open){
+  max-height: 2.5rem;
+  transition: max-height 2s ease, background-color 2s ease;
+}
+
+/* Delete section */
+.delete{
+  position: absolute;
+  top: 10px;
+  z-index: 10px;
+}
+.meal-list
+.cart-card{
+  position: relative;
+}
+.save-list .meal-card {
+  position: relative;
+}
+
+.discount {
+  position: absolute;
+  animation: resize 1.5s infinite alternate;
+}
+
+@keyframes resize {
+  from {
+    width: 10%;
+  }
+
+  to {
+    width: 5%;;
+  }
 }
 
 @media (min-width: 768px) {
